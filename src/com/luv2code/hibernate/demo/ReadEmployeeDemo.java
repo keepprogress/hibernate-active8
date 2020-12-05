@@ -28,13 +28,18 @@ public class ReadEmployeeDemo {
 			session.beginTransaction();
 			
 			// query employees
-			List<Employee> theEmployees = session.createQuery("from Employee").list();
+			List<Employee> theEmployees = session.createQuery("from Employee").getResultList();
 			
 			// display the employees
-			for (Employee tempEmployee : theEmployees) {
-				System.out.println(tempEmployee);
-			}
+			displayEmployees(theEmployees);
 
+			// query employee: lastName = "janson"
+			theEmployees = session.createQuery("from Employee s where s.lastName='janson'").getResultList();
+			
+			// display the employees
+			System.out.println("\n\nEmployees who have last name of 'janson'");
+			displayEmployees(theEmployees);
+			
 			// commit transaction
 			session.getTransaction().commit();
 			
@@ -47,6 +52,12 @@ public class ReadEmployeeDemo {
 		}
 		
 		
+	}
+
+	private static void displayEmployees(List<Employee> theEmployees) {
+		for (Employee tempEmployee : theEmployees) {
+			System.out.println(tempEmployee);
+		}
 	}
 
 }
