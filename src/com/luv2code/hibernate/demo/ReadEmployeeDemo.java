@@ -40,6 +40,14 @@ public class ReadEmployeeDemo {
 			System.out.println("\n\nEmployees who have last name of 'janson'");
 			displayEmployees(theEmployees);
 			
+			// query employees: company = "mymusic"
+			theEmployees = session.createQuery("from Employee s where s.company='myMusic'").getResultList();
+			
+			// display the employees
+			System.out.println("\n\nEmployees who work at 'myMusic'");
+			displayEmployees(theEmployees);
+
+			
 			// commit transaction
 			session.getTransaction().commit();
 			
