@@ -34,8 +34,13 @@ public class DeleteEmployeeDemo {
 			Employee myEmployee = session.get(Employee.class, employeeId);
 			
 			// delete the employee
-			System.out.println("Deleting employee " + myEmployee);
-			session.delete(myEmployee);
+			//System.out.println("Deleting employee " + myEmployee);
+			//session.delete(myEmployee);
+			
+			// delete student id=2
+			System.out.println("Deleting employee id=2");
+			
+			session.createQuery("delete from Employee where id=2").executeUpdate();
 			
 
 			// commit transaction
