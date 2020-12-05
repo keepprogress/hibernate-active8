@@ -4,16 +4,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.luv2code.hibernate.demo.entity.Student;
+import com.luv2code.hibernate.demo.entity.Employee;
 
-public class CreateStudentDemo {
+public class CreateEmployeeDemo {
 
 	public static void main(String[] args) {
 		
 		// create session factory
 		SessionFactory factory = new Configuration()
 									.configure("hibernate.cfg.xml")
-									.addAnnotatedClass(Student.class)
+									.addAnnotatedClass(Employee.class)
 									.buildSessionFactory();
 				
 		// create session
@@ -21,15 +21,15 @@ public class CreateStudentDemo {
 				
 		// close session
 		try {
-			// create a student object
-			System.out.println("Creating a  new Student Object ......");
-			Student tempStuent = new Student("Nickle", "Smith", "Nickle@luv2code.com");
+			// create a employee object
+			System.out.println("Creating a  new employee Object ......");
+			Employee tempStuent = new Employee("Nickle", "Smith", "myMusic");
 			
 			// start a transaction
 			session.beginTransaction();
 			
-			// save the student object
-			System.out.println("We are saving the student please wait......");
+			// save the employee object
+			System.out.println("We are saving the employee please wait......");
 			session.save(tempStuent);
 			
 			// commit transaction

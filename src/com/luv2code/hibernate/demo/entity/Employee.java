@@ -6,8 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="student")
-public class Student {
+@Table(name="employee")
+public class Employee {
 	
 	@Id
 	@Column(name="id")
@@ -19,8 +19,8 @@ public class Student {
 	@Column(name="last_name")
 	private String lastName;
 	
-	@Column(name="email")
-	private String email;
+	@Column(name="company")
+	private String company;
 	
 	
 	public int getId() {
@@ -52,32 +52,33 @@ public class Student {
 		this.lastName = lastName;
 	}
 
-
-	public String getEmail() {
-		return email;
+	public String getCompany() {
+		return company;
 	}
 
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCompany(String company) {
+		this.company = company;
 	}
 
+	
 
-	public Student(String firstName, String lastName, String email) {
-		this.firstName = firstName;
+	public Employee(String firstName, String lastName, String company) {
+				this.firstName = firstName;
 		this.lastName = lastName;
-		this.email = email;
+		this.company = company;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", company=" + company
+				+ "]";
 	}
 
 
 	// no-arg constructor
-	public Student() {
+	public Employee() {
 	}
 
 }
