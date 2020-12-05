@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.luv2code.hibernate.demo.entity.Employee;
 
-public class CreateEmployeeDemo {
+public class PrimarykeyDemo {
 
 	public static void main(String[] args) {
 		
@@ -21,10 +21,12 @@ public class CreateEmployeeDemo {
 				
 		// close session
 		try {
-			// create a employee object
+			// create 3 employee object
 			System.out.println("Creating new employee Objects ......");
-			Employee tempEmployee1 = new Employee("Nickle", "Smith", "myMusic");
-		
+			Employee tempEmployee1 = new Employee("Rock", "janson", "myMusic");
+			Employee tempEmployee2 = new Employee("Nicklelas", "Cage", "myVideo");
+			Employee tempEmployee3 = new Employee("John", "Seena", "myBook");
+
 			
 			// start a transaction
 			session.beginTransaction();
@@ -32,6 +34,8 @@ public class CreateEmployeeDemo {
 			// save the employee object
 			System.out.println("We are saving the employee please wait......");
 			session.save(tempEmployee1);
+			session.save(tempEmployee2);
+			session.save(tempEmployee3);
 			
 
 			// commit transaction
